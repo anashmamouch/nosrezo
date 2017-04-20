@@ -85,9 +85,7 @@ export class PersonnelPage {
                     "statutLogement":'', 
                   };
 
-    this.getInfoAffiliate(); 
-
-    
+    this.getInfoAffiliate();    
     this.validatePersonnel();
   }
 

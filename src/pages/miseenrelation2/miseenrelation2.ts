@@ -34,7 +34,8 @@ export class Miseenrelation2Page {
     this.typeList = []; 
     this.partenaireList = []; 
 
-    this.geoCode =  "http://nosrezo.com/scripts/API_MOBILE/api_city_getautocomplete.php?term=:keyword"; 
+    //this.geoCode = this.API +  "/api_city_getautocomplete.php?term=:keyword";
+    this.geoCode = "http://www.nosrezo.com/scripts/API_MOBILE/api_city_getautocomplete.php?term=:keyword"; 
 
     this.relationData = {
                           codePostal: '' ,
@@ -142,7 +143,7 @@ export class Miseenrelation2Page {
                         service_du_parrain_2 : localStorage.getItem('service_du_parrain_2')
                 }
 
-      let URLType = 'http://www.nosrezo.com/scripts/API_MOBILE/api_recherche_partenaires.php'; 
+      let URLType = this.API + '/api_recherche_partenaires.php'; 
 
       console.log('-----------------------URL TYPE-----------------------', URLType); 
 
@@ -166,7 +167,7 @@ export class Miseenrelation2Page {
   }
 
   mettreEnRelation(){
-    let URLRelation = this.API + 'api_insert_prescription_mobile.php'; 
+    let URLRelation = this.API + '/api_insert_prescription_mobile.php'; 
 
     console.log('-----------------------URL RELATION-----------------------', URLRelation); 
 

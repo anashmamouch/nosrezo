@@ -46,24 +46,9 @@ export class Miseenrelation5Page {
   onPartenaireSelected(data){
     console.log('********************PARTENAIRE SELECTED********************', data); 
 
-
     this.relationData.partenaire = data.partenaire
     this.relationData.partenaire_val = data.val; 
 
-    // let URL = this.API + 'api_infos_partenaire.php?term=' + this.relationData.partenaire_val; 
-
-    // this.http 
-    //     .get(URL)
-    //     .subscribe(
-    //       data => {
-    //         let response = JSON.parse(data['_body']); 
-    //         console.log('PARTENAIRE RESPONSE', response); 
-    //       }, 
-    //       error => {
-    //         console.log('error', error); 
-    //       }
-    //     )
-    
     console.log('relation data', this.relationData); 
     
     this.navCtrl.push(Miseenrelation51Page, { relationData: this.relationData, id_affiliate: data.val });

@@ -1,8 +1,25 @@
 {
-    "login" : "Log In", 
-    "motpasseoublie": "Forgot your password", 
-    "inscriptionFacebook" : "Sign up with Facebook", 
-    "compteFacebook": "You don't have a facebook account",
+    "login" : "Se connecter",
+    "application qui vous rémunère": "L'application qui vous rémunère", 
+    "pour rendre service": "pour rendre service", 
+    "Oublié ?": "Oublié ?", 
+    "Pas encore de compte ?": "Pas encore de compte ?", 
+    "inscrire": "S'inscrire",
+ 
+    "Total affiliés équipe :": "Total affiliés équipe :",
+    "Détails affiliés par niveau :": "Détails affiliés par niveau :", 
+    "Niveau 1": "Niveau 1",  
+    "Niveau 2": "Niveau 2", 
+    "Niveau 3": "Niveau 3", 
+    "Niveau 4": "Niveau 4", 
+    "Niveau 5": "Niveau 5", 
+    "Niveau 6": "Niveau 6", 
+    "Total recommandations équipe :": "Total recommandations équipe :", 
+    "Détails recommandations par niveau :": "Détails recommandations par niveau :", 
+    "Mes dossiers": "Mes dossiers", 
+    "À Encaisser :": "À Encaisser :", 
+    "Rémunération potentielle :": "Rémunération potentielle :", 
+    "Détails rémunérations par niveau :" : " Détails rémunérations par niveau :", 
 
     "accueil": "Home",
     "Affiliés Niveau 1" : "Affiliates level 1" ,
@@ -15,6 +32,6 @@
     "Français" : "French" ,
     "Portugais" : "Portuguese" ,
     "Anglais" : "English" ,
-    "Langue" : "Language" 
+    "Langue" : "Language"
 
 }

@@ -5,12 +5,7 @@ import { Http } from "@angular/http";
 
 declare var FusionCharts:any;
 
-/*
-  Generated class for the Stats1 page.
 
-  See http://ionicframework.com/docs/v2/components/#navigation for more info on
-  Ionic pages and navigation.
-*/
 @Component({
   selector: 'page-stats1',
   templateUrl: 'stats1.html'

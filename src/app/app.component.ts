@@ -19,6 +19,8 @@ import { TabsPage } from '../pages/tabs/tabs';
 import { VideosPage } from '../pages/videos/videos'; 
 import { AproposPage } from '../pages/apropos/apropos'; 
 
+import { DepartementsPage } from '../pages/departements/departements'; 
+
 import { Miseenrelation3Page } from '../pages/miseenrelation3/miseenrelation3';
 
 import { PersonnelPage } from '../pages/personnel/personnel';
@@ -31,8 +33,6 @@ import { Storage } from '@ionic/storage';
 
 //import services
 import { Api } from '../providers/api';
-// import { ChatService } from '../providers/chat-service';
-// import { UserService } from '../providers/user-service';
 
 //import menu
 import { MenuController } from 'ionic-angular'
@@ -47,7 +47,7 @@ import { Events } from 'ionic-angular';
 })
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
-  //rootPage: any = LoginPage;
+
   rootPage: any = LoginPage;
   pages: any;
 
@@ -65,19 +65,19 @@ export class MyApp {
 
     this.recommandations = ' '; 
 
-    this.pages = [ ]; 
-    this.recommandations = localStorage.getItem('recommandations_menu'); 
+    this.pages = api.pages; 
+    this.recommandations = localStorage.getItem('nb_reco_retard'); 
 
     this.events.subscribe('page:clicked', (page) => {
       if(page.title == 'Recommandations'){
         this.recommandations = 0 ; 
 
         this.storage.ready().then(() => {
-              this.storage.set('recommandations', 0); 
+            this.storage.set('recommandations', 0); 
         }); 
 
         console.log('<<<<<RECOMMANDATIONS>>>>>', this.recommandations); 
-        
+       
       }
     }); 
 
@@ -88,98 +88,16 @@ export class MyApp {
 
     let URL = localStorage.getItem('api') + 'api_return_info_affiliate.php?term='+localStorage.getItem('id_affiliate'); 
     console.log('%%%%%%%URL%%%%%%%', URL); 
-
-    // storage.ready().then(() =>{
-
-    //     storage.get('pagess').then((val) => {
-    //      console.log('~~~~~~~~>PAGES', val);
-    //      this.pages = JSON.parse(val); 
-    //    });
-
-    //    storage.get('recommandations').then((val) =>{
-    //       this.recommandations = JSON.parse(val); 
-    //    }); 
-
-    // }); 
-
-
-    // this.http
-    //     .get(URL)
-    //     .subscribe(
-    //       data =>{
-    //         this.response = JSON.parse(data['_body'])[0]; 
-
-    //         console.log('::::::this.response::::::', this.response); 
-    //         console.log('partenaire_id', this.response['id_partenaire']); 
-    //         console.log('nombre de reco', this.response['nb_reco']); 
-    //         console.log('nombre reco retard', this.response['nb_reco_retard'])
-
-    //         this.recommandations = this.response['nb_reco_retard']; 
-
-    //         if(this.response['id_partenaire'] != 0 ){
-    //           this.pages = [
-    //                         { title: 'Accueil', component: AccueilPage },
-    //                         { title: 'Mise en relation', component: MiseenrelationPage },
-    //                         { title: 'Mise en relation 2', component: Miseenrelation2Page },
-    //                         { title: 'Mise en relation 3', component: Miseenrelation3Page },
-    //                         { title: 'Parrainer un ami', component: ParrainerPage},
-    //                         { title: 'Mon Equipe', component: MonequipePage },
-    //                         { title: 'AperoRezo', component: AperorezoPage},
-    //                         { title: 'Recommandations à traiter', component: RecommandationsPage },
-    //                         { title: 'Recommandations', component: Recommandations2Page },
-    //                         { title: 'Outils', component: OutilsPage},
-    //                         { title: 'Préférences', component: PreferencesPage },
-    //                         { title: 'Mon profil', component: PersonnelPage },
-    //                         { title: 'A propos', component: AproposPage },
-    //                       ];
-    //         }else{
-    //           this.pages = [
-    //                         { title: 'Accueil', component: AccueilPage },
-    //                         { title: 'Mise en relation', component: MiseenrelationPage },
-    //                         { title: 'Mise en relation 2', component: Miseenrelation2Page },
-    //                         { title: 'Mise en relation 3', component: Miseenrelation3Page },
-    //                         { title: 'Parrainer un ami', component: ParrainerPage},
-    //                         { title: 'Mon Equipe', component: MonequipePage },
-    //                         { title: 'AperoRezo', component: AperorezoPage},
-    //                         { title: 'Outils', component: OutilsPage},
-    //                         { title: 'Préférences', component: PreferencesPage },
-    //                         { title: 'Mon profil', component: PersonnelPage },
-    //                         { title: 'A propos', component: AproposPage },
-    //                       ];
-    //         }
-
-    //         this.response = { } ; 
-    //       }, 
-    //       error =>{
-    //         console.log('----ERROR----', error); 
-    //       }
-    //     )
-
-    // used for an example of ngFor and navigation
-    // this.pages = [
-    //   { title: 'Accueil', component: AccueilPage },
-    //   { title: 'Mise en relation', component: MiseenrelationPage },
-    //   { title: 'Mise en relation 2', component: Miseenrelation2Page },
-    //   { title: 'Mise en relation 3', component: Miseenrelation3Page },
-    //   { title: 'Parrainer un ami', component: ParrainerPage},
-    //   { title: 'Mon Equipe', component: MonequipePage },
-    //   { title: 'AperoRezo', component: AperorezoPage},
-    //   { title: 'Recommandations à traiter', component: RecommandationsPage },
-    //   { title: 'Recommandations', component: Recommandations2Page },
-    //   { title: 'Outils', component: OutilsPage},
-    //   { title: 'Préférences', component: PreferencesPage },
-	  //   { title: 'Mon profil', component: PersonnelPage },
-    //   { title: 'A propos', component: AproposPage },
-    // ];
-
-      this.nom = localStorage.getItem('nom');
-      this.image = api.image;
+    this.nom = localStorage.getItem('nom');
+    this.image = api.image;
   }
 
   initializeApp() {
     console.log("Hello App Component");
      Splashscreen.hide();
       this.platform.ready().then(() => {
+
+        this.menuOpened(); 
 
         var tag = document.createElement('script');
 
@@ -195,19 +113,18 @@ export class MyApp {
   }
 
   menuClosed() {
-    console.log('~~~~~~~~~~~~CLOSE---MENU~~~~~~~~~~~~'); 
+    console.log('~~~~~~~~~~~~CLOSE--(|.|)--MENU~~~~~~~~~~~~'); 
   }
 
   menuOpened() {
-      console.log('~~~~~~~~~~~~OPEN---MENU~~~~~~~~~~~~'); 
-      setTimeout(function (){
+      console.log('~~~~~~~~~~~~OPEN--(|.|-|.|)--MENU~~~~~~~~~~~~'); 
 
-      }, 200); 
+
       this.storage.ready().then(() =>{
 
-        this.storage.get('pagess').then((val) => {
-            console.log('~~~~~~~~>PAGES', val);
-            this.pages = JSON.parse(val); 
+      this.storage.get('pagess').then((val) => {
+          console.log('~~~~~~~~>PAGES', val);
+          this.pages = JSON.parse(val); 
       });
 
       this.storage.get('recommandations').then((val) =>{
@@ -240,6 +157,7 @@ export class MyApp {
     }else if(page.title == 'Recommandations à traiter'){
       this.nav.setRoot(RecommandationsPage); 
     }else if(page.title == 'Recommandations'){
+      this.api.recommandations = "0 " ; 
       this.nav.setRoot(Recommandations2Page); 
     }else if(page.title == 'Outils'){
       this.nav.setRoot(OutilsPage); 

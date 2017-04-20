@@ -25,13 +25,13 @@ export class Majrecommandations3Page {
 
   clickOption(data){
     console.log('delaiRelance ---> ', data);
-    this.navCtrl.push(Majrecommandations4Page, { etapeReco: this.etapeReco, recoTraiter:this.recoTraiter, delaiRelance: this.delaiRelance});  
+    this.navCtrl.push(Majrecommandations4Page, { etapeReco: this.etapeReco, recoTraiter:this.recoTraiter, delaiRelance: data});  
   }
 
   choose(data, string){
     console.log('DATA ---->', data);
     console.log('STRING ---->', string); 
-    this.navCtrl.push(Majrecommandations4Page, { etapeReco: this.etapeReco, etapeRecoString: this.etapeRecoString, recoTraiter:this.recoTraiter, delaiRelance: this.delaiRelance, delaiRelanceString: string });  
+    this.navCtrl.push(Majrecommandations4Page, { etapeReco: this.etapeReco, etapeRecoString: this.etapeRecoString, recoTraiter:this.recoTraiter, delaiRelance: data, delaiRelanceString: string });  
   }
 
 }

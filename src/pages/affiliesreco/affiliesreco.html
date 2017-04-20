@@ -1,0 +1,27 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{"Affiliés recommandation" | translate}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  {{ "Vos affiliés réalise 1 recommandation" | translate }}
+  
+  <ion-list>
+   
+    <ion-item (click) = "clickReco(600)">   {{ "Vente appartement - Valeur 200 000 €" | translate }} </ion-item>
+    <ion-item (click) = "clickReco(1200)">  {{ "Vente appartement - Valeur 400 000 €" | translate }}  </ion-item>
+    <ion-item (click) = "clickReco(1800)">  {{ "Vente appartement - Valeur 600 000 €" | translate }}  </ion-item>
+    <ion-item (click) = "clickReco(417)">   {{ "Travaux rénovation - Devis 10 000 €" | translate }} </ion-item>
+    <ion-item (click) = "clickReco(833)">   {{ "Travaux rénovation - Devis 20 000 €" | translate }} </ion-item>
+    <ion-item (click) = "clickReco(1250)">  {{ "Travaux rénovation - Devis 30 000 €" | translate }}  </ion-item>
+    <ion-item (click) = "clickReco(400)">   {{ "Financement de prêt - Devis 200 000 €" | translate}} </ion-item>
+    <ion-item (click) = "clickReco(601)">   {{ "Financement de prêt - Devis 300 000 €" | translate}} </ion-item>
+    <ion-item (click) = "clickReco(625)">   {{ "Financement de prêt - Devis 400 000 €" | translate}} </ion-item>
+    <ion-item (click) = "clickReco(501)">   {{ "Recrutement immobilier - France" | translate}} </ion-item>
+
+  </ion-list>
+</ion-content>

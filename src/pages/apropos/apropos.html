@@ -6,7 +6,7 @@
       <ion-icon name="menu"></ion-icon>
     </button>
 
-    <ion-title>À propos</ion-title>
+    <ion-title>{{ "À propos" | translate }}</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -14,51 +14,17 @@
 <ion-content>
 
   <ion-list>
+ 
+    <button ion-item (click)="conceptNosRezo()">{{ "Le concept NosRezo" | translate }} </button>
 
-    <button ion-item (click)="conceptNosRezo()"> Le concept NosRezo </button>
-
-    <ion-item>
-      <a href="{{listInfo.lien_webinar}}"> Prochaines présentations en ligne </a>
+    <ion-item>{{ "Contacter le service qualité" | translate }}
+      <a href="tel:{{listInfo.telephone_service_qualite}}"><ion-icon color="nosrezo" name="ios-call-outline" item-right></ion-icon></a>
+	  <a href="mailto:contact@nosrezo.com?subject=Question NosRezo&body=Salut la team NosRezo, %0D %0D %0D %0D{{listInfo.first_name_owner}} %0D{{listInfo.phone_number}}"><ion-icon color="nosrezo" name="ios-mail-outline" item-right></ion-icon></a>
     </ion-item>
 
-    <ion-item>
-      <a href="mailto:?subject=Presentation 
-                NosRezo du lundi&body=Bonjour, %0D %0D 
-                Je te conseille d'assister au webinar 
-                du lundi, 20 min qui changent tout 
-                : {{listInfo.lien_webinar}} %0D 
-                %0D{{listInfo.first_name_owner}} 
-                %0D{{listInfo.phone_number}}">Calendrier des présentations par mail</a>
-    </ion-item>
-
-    <ion-item>
-      <a href="tel:{{listInfo.telephone_service_qualite}}">Contacter le service qualité par téléphone</a>
-    </ion-item>
-
-    <ion-item>
-       <a href="mailto:contact@nosrezo.com?subject=Question NosRezo&body=Salut la team NosRezo, 
-                %0D %0D %0D %0D{{listInfo.first_name_owner}} 
-                %0D{{listInfo.phone_number}}">Contacter le service qualité par mail</a>
-    </ion-item>
-
-    <button ion-item (click)="conditionsGeneralesUtilisations()"> Conditions Générales d'Utilisation </button>
-    <button ion-item (click)="conditionsGeneralesInscription()"> Conditions Générales d'Inscription </button>
-    <button ion-item (click)="codeBonSensNosRezo()"> Le code du bon sens NosRezo </button>
-    <button ion-item (click)="likeFacebookPage()"> Likez notre page Facebook </button>
-    <button ion-item (click)="avisAppStore()"> Laissez un avis sur l'App Store </button>
-
-    <!--
-
-      <ion-item>
-        <a href="https://www.facebook.com/Nosrezo-331807033627841/"> Likez notre page Facebook</a> 
-      </ion-item>
-
-      <ion-item>
-        <a href="https://itunes.apple.com/fr/app/nosrezo-france/id1054618680?mt=8">Laissez un avis sur l'App Store</a>
-      </ion-item>
-    
-    -->
-
+    <button ion-item (click)="conditionsGeneralesUtilisations()"> {{ "Conditions Générales d'Utilisation" | translate }} </button>
+    <button ion-item (click)="conditionsGeneralesInscription()"> {{ "Conditions Générales d'Inscription" | translate}} </button>
+    <button ion-item (click)="codeBonSensNosRezo()"> {{ "Le code du bon sens NosRezo" | translate}} </button>
   </ion-list>
 
 </ion-content>

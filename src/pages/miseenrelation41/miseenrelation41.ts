@@ -23,7 +23,10 @@ export class Miseenrelation41Page {
     this.title = this.item['s_sub_category']; 
     this.description = this.item['description_service']; 
     this.commentParler = this.item['comment_en_parler'];
-    this.image = '../../assets/images/' + this.item['photo_service']; 
+    this.remMoyenne = this.item['remuneration_moyenne']; 
+    this.image = 'assets/images/' + this.item['photo_service']; 
+
+    console.log('image', this.image); 
 
   }
 

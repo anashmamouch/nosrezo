@@ -54,7 +54,6 @@ import { Miseenrelation2Page } from '../pages/miseenrelation2/miseenrelation2';
 import { PreferencesPage } from '../pages/preferences/preferences';
 import { RecommandationsPage } from '../pages/recommandations/recommandations'; 
 import { Recommandations2Page } from '../pages/recommandations2/recommandations2'; 
-import { Recommandations3Page } from '../pages/recommandations3/recommandations3'; 
 import { PaiementPage } from '../pages/paiement/paiement'; 
 import { MajrecommandationsPage } from '../pages/majrecommandations/majrecommandations'; 
 import { Majrecommandations2Page } from '../pages/majrecommandations2/majrecommandations2'; 
@@ -74,6 +73,13 @@ import { Miseenrelation6Page } from '../pages/miseenrelation6/miseenrelation6';
 import { ModalPage } from '../pages/modal/modal'; 
 import { VideosPage } from '../pages/videos/videos'; 
 import { TabsPage } from '../pages/tabs/tabs'; 
+import { DepartementsPage } from '../pages/departements/departements'; 
+
+import { AffiliesequipePage } from '../pages/affiliesequipe/affiliesequipe'; 
+import { AffiliesniveauPage } from '../pages/affiliesniveau/affiliesniveau'; 
+import { AffiliesrecoPage } from '../pages/affiliesreco/affiliesreco'; 
+
+import { AbonnementnosrezoPage } from '../pages/abonnementnosrezo/abonnementnosrezo'; 
 
 import { Ng2AutoCompleteModule } from 'ng2-auto-complete';
 
@@ -160,7 +166,6 @@ import { TranslateService, TranslateModule, TranslateStaticLoader, TranslateLoad
     PreferencesPage,
     RecommandationsPage,
     Recommandations2Page,
-    Recommandations3Page,
     PaiementPage,
     MajrecommandationsPage,
     Majrecommandations2Page,
@@ -180,8 +185,16 @@ import { TranslateService, TranslateModule, TranslateStaticLoader, TranslateLoad
     Miseenrelation51Page,
     Miseenrelation6Page,
     VideosPage,
+
+    DepartementsPage,
+
+    AbonnementnosrezoPage,
 	  
 	  ModalPage,
+
+    AffiliesequipePage,
+    AffiliesniveauPage,
+    AffiliesrecoPage,
 
     ionSlideTabs,
     IonProfileHeader,
@@ -269,7 +282,6 @@ import { TranslateService, TranslateModule, TranslateStaticLoader, TranslateLoad
     PreferencesPage,
     RecommandationsPage,
     Recommandations2Page,
-    Recommandations3Page,
     PaiementPage,
     MajrecommandationsPage,
     Majrecommandations2Page,
@@ -288,8 +300,16 @@ import { TranslateService, TranslateModule, TranslateStaticLoader, TranslateLoad
     Miseenrelation5Page,
     Miseenrelation51Page,
     Miseenrelation6Page,
+
+    DepartementsPage,
+
+    AbonnementnosrezoPage,
 	  
 	  ModalPage,
+
+    AffiliesequipePage,
+    AffiliesniveauPage,
+    AffiliesrecoPage,
 
     ionSlideTabs,
     IonProfileHeader,

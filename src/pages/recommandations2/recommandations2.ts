@@ -26,7 +26,7 @@ export class Recommandations2Page {
     this.nombre_reco_total = '';
     this.reco_a_traiter = '';  
 
-    let URL: string = this.API + 'api_return_recommandations.php?term='+localStorage.getItem('id_affiliate');
+    let URL: string = this.API + 'api_return_recommandations.php?term='+localStorage.getItem('id_partenaire');
     console.log('<<<url recommandations>>>', URL); 
 
     this.http.get(URL).subscribe((data) => {
@@ -49,7 +49,7 @@ export class Recommandations2Page {
 
     traitementRecommandation(id_recommandation) {
 
-        let URL: string = this.API + 'api_return_info_recommandation.php?term='+id_recommandation;
+        let URL: string = this.API + 'api_return_info_recommandation.php?term=' + id_recommandation;
 
         console.log('||__________________  URL RECOMMANDATION  __________________||', URL); 
 

@@ -1,22 +1,21 @@
 import { Component, ViewChild, Input, OnChanges, SimpleChange, Output, EventEmitter } from '@angular/core';
 import { Scroll } from 'ionic-angular';
 
-/*
-  Generated class for the Scrolltabs component.
 
-  See https://angular.io/docs/ts/latest/api/core/index/ComponentMetadata-class.html
-  for more info on Angular 2 Components.
-*/
 @Component({
   selector: 'scroll-tabs',
   templateUrl: 'scrolltabs.html'
 })
+
 export class ScrollTabsComponent implements OnChanges {
   @Input('tabs') tabs;
   @ViewChild('scrollTab') scroll: Scroll;
   @Output() onSelectedTab = new EventEmitter();
   position: number = 0;
   currentTab: any;
+
+  images:any = []; 
+  
   constructor() {
 
   }

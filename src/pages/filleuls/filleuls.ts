@@ -53,13 +53,15 @@ export class FilleulsPage {
       }
 
   goToProfile(index){
-    let idAffiliate = this.filleuls[index]['id_affiliate'];
-    let firstName = this.filleuls[index]['first_name'];
-    let lastName = this.filleuls[index]['last_name'];
+    console.log(index);
+  }
 
-    console.log(this.filleuls[index]); 
+  callNumber(item){
+    console.log(item); 
+  }
 
-    this.navCtrl.push(ProfilePage, {params: this.filleuls[index]}); 
+  smsNumber(item){
+    console.log(item); 
   }
 
 }

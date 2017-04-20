@@ -4,7 +4,7 @@
       <button ion-button menuToggle>
         <ion-icon name="menu"></ion-icon>
       </button>
-    <ion-title>Mes Vidéos</ion-title>
+    <ion-title><img alt="logo" height="45" src="assets/images/youtube.svg"></ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -14,11 +14,7 @@
   <ion-card *ngFor="let data of datas">
     <iframe allowfullscreen frameborder="0" height="200" width="100%" [src]="data.snippet.resourceId.videoId | safe:'resourceUrl'">
     </iframe>
-    <ion-card-content>
-      <ion-card-title class="title">
-        {{data.snippet.title}}
-      </ion-card-title>
-    </ion-card-content>
+   
   </ion-card>
 
   <ion-infinite-scroll (ionInfinite)="infiniteScrool($event)">

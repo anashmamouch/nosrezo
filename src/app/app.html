@@ -2,7 +2,7 @@
 	
     <ion-header text-center padding>
        <div class="menu-img-avatar">
-       <img [src]= "api.image" >
+          <img [src]= "api.image" >
        </div>
 	 <button ion-button clear full no-margin menuClose (click)= "goToProfile()">{{api.data.first_and_last_name}}</button>
     </ion-header>
@@ -10,8 +10,8 @@
     <ion-content padding>
 
       <ion-list class="menu">
-        <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
-           <ion-icon name="{{p.icon}}"></ion-icon> {{p.title}} <span text-right  *ngIf="p.title == 'Recommandations' && recommandations != 0">  <ion-badge item-right no-margin color="danger">{{recommandations}}</ion-badge></span>
+        <button menuClose ion-item *ngFor="let p of api.pages" (click)="openPage(p)">
+           <ion-icon name="{{p.icon}}"></ion-icon> {{p.title}} <span text-right  *ngIf="p.title == 'Recommandations' && api.recommandations != 0">  <ion-badge item-right no-margin color="danger">{{api.recommandations}}</ion-badge></span>
         </button>
       </ion-list>
 

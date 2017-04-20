@@ -60,12 +60,17 @@ export class MajrecommandationsPage {
             description: this.description
     }
 
-    let URL: string = this.API + 'api_maj_recommandation.php';
+    let URL: string = this.API + '/api_maj_recommandation.php';
+
+    console.log('urlurlurl', URL); 
     
     this.http
         .post(URL, data)
         .subscribe(
           data => {
+            
+            console.log('data', data); 
+
             let response = JSON.parse(data['_body']); 
             console.log('^^^^^^^^^^^^DATA^^^^^^^^^^^^', response);
 

@@ -58,13 +58,13 @@
 
     <!--DATE DE NAISSANCE-->
       <ion-item>
-        <ion-label>Date naissance</ion-label>
+        <ion-label fixed>Date naissance</ion-label>
         <ion-datetime cancelText="Annuler" doneText="Confirmer" formControlName="dateNaissance" displayFormat="DD/MM/YYYY" [(ngModel)]="user.dateNaissance" name="dateNaissance"></ion-datetime>
       </ion-item>
 
     <!--PLACE DE NAISSANCE-->
       <ion-item>
-        <ion-label>Lieu de naissance</ion-label>
+        <ion-label fixed>Lieu de naissance</ion-label>
         <ion-input type="text" formControlName="placeNaissance" [(ngModel)]="user.placeNaissance" name="placeNaissance"></ion-input>
       </ion-item>
 
@@ -79,7 +79,12 @@
         <ion-label fixed>N° sécurité sociale</ion-label>
         <ion-input type="text" [disabled]="true"  formControlName="numSecuriteSocial" [(ngModel)]="user.numSecuriteSocial" name="numSecuriteSocial" placeholder = "100435532424"></ion-input>
       </ion-item>
+	  
 
+	<ion-list-header>
+    Votre habitation
+  	</ion-list-header>
+  
     <!--LOGEMENT AFFILIES-->
       <ion-item>
         <ion-label>Vous habitez</ion-label>
@@ -93,8 +98,8 @@
       <ion-item>
         <ion-label>Vous êtes</ion-label>
         <ion-select formControlName="statutLogement" [(ngModel)]="user.statutLogement" name="statutLogement">
-          <ion-option value="1">Locataire de votre logement</ion-option>
-          <ion-option value="2">Propriétaire de votre logement</ion-option>
+          <ion-option value="1">Locataire</ion-option>
+          <ion-option value="2">Propriétaire</ion-option>
         </ion-select>
       </ion-item>
 	  

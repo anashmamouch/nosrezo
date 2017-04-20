@@ -1,0 +1,21 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{"Affiliés équipe" | translate}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  {{ "Affiliés Équipe NosRezo actifs:" | translate }}
+
+  <ion-list>
+
+    <ion-item (click)="clickEquipe(20)"> 20 % {{ "de votre développement est actif" | translate }} </ion-item>
+    <ion-item (click)="clickEquipe(50)"> 50 % {{ "de votre développement est actif" | translate }} </ion-item>
+    <ion-item (click)="clickEquipe(100)"> 100 % {{ "de votre développement est actif" | translate }}</ion-item>
+
+  </ion-list>
+
+</ion-content>

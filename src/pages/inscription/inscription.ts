@@ -97,7 +97,6 @@ export class InscriptionPage {
                   "name_parrain": '',
                   "source_appel_appli": '2',
                 }
-              //this.navCtrl.setRoot(InscriptionPage);
             }else {
               this.showAlert("ATTENTION", response['ERROR_MESSAGE'], "OK");   
             }

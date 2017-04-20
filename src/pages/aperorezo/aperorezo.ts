@@ -31,12 +31,12 @@ export class AperorezoPage {
             let response = JSON.parse(data['_body']); 
             console.log('APERO REZO', response); 
             this.aperosrezo = response;
-
-            for(let i = 0; i < this.aperosrezo.length; i ++){
-              console.log('APERO', this.aperosrezo[i]); 
+              
+            for(let i = 0; i < this.aperosrezo.length; i++){
+              console.log(i+'APERO', this.aperosrezo[i]); 
 
               this.image = this.API.split('scripts')[0] + this.aperosrezo[i]['photo_profil'] ; 
-              
+              this.aperosrezo[i]['photo_profil'] = this.image;
               console.log(this.image); 
             }
 

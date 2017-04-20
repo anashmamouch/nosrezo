@@ -61,8 +61,7 @@ export class MiseenrelationPage {
     console.log('TROUVER LA VILLE', data); 
 
     if(this.relationData.codePostal){
-      let URLLocation = 'http://www.nosrezo.com/scripts/API_MOBILE/api_city_getautocomplete.php?term='
-                        +this.relationData.codePostal;
+      let URLLocation = this.API + '/api_city_getautocomplete.php?term='+this.relationData.codePostal;
 
       console.log('-----------------------URL LOCATION-----------------------', URLLocation); 
       this.http
@@ -89,7 +88,7 @@ export class MiseenrelationPage {
       this.relationData.longitude = data.longitude;
       this.relationData.country = data.country; 
 
-      let URLType = 'http://www.nosrezo.com/scripts/API_MOBILE/api_service_mobile2.php?term=' 
+      let URLType = this.API + '/api_service_mobile2.php?term=' 
                     + localStorage.getItem('id_partenaire_is_iad') 
                     + '&country=' + this.relationData.country; 
       console.log('<< URL TYPE >>', URLType); 
@@ -127,7 +126,7 @@ export class MiseenrelationPage {
                         service_du_parrain_2 : localStorage.getItem('service_du_parrain_2')
                 }
 
-      let URLType = 'http://www.nosrezo.com/scripts/API_MOBILE/api_recherche_partenaires.php'; 
+      let URLType = this.API + '/api_recherche_partenaires.php'; 
 
       console.log('-----------------------URL TYPE-----------------------', URLType); 
 

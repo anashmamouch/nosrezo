@@ -17,12 +17,11 @@ export class Miseenrelation3Page {
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public http:Http) {
     console.log('<------------------MISE EN RELATION PAGE------------------>');
-    this.geoCode =  "http://nosrezo.com/scripts/API_MOBILE/api_city_getautocomplete.php?term=:keyword"; 
+    this.API = localStorage.getItem('api'); 
+    this.geoCode =  "http://www.nosrezo.com/scripts/API_MOBILE/api_city_getautocomplete.php?term=:keyword"; 
 
     this.relationData = { }; 
     this.typeList = []; 
-
-    this.API = localStorage.getItem('api'); 
 
   }
 

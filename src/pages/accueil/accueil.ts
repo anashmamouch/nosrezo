@@ -21,12 +21,12 @@ import { IScrollTab, ScrollTabsComponent } from '../../components/scrolltabs';
 //pages
 import { SimulateurfinancementPage } from '../simulateurfinancement/simulateurfinancement'; 
 import { SimulateurnotairePage } from '../simulateurnotaire/simulateurnotaire';
-import { SimulateurgainsPage } from '../simulateurgains/simulateurgains'; 
+import { SimulateurrevenuPage } from '../simulateurrevenu/simulateurrevenu'; 
 
 import 'rxjs/add/operator/map';
 
-import {YoutubeService} from '../../providers/youtube-service/youtube-service';
-
+import { YoutubeService } from '../../providers/youtube-service/youtube-service';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 
 @Component({
   selector: 'page-accueil',
@@ -35,17 +35,6 @@ import {YoutubeService} from '../../providers/youtube-service/youtube-service';
 })
 
 export class AccueilPage {
-
-
-    //youtube variables
-    channelID: string = 'UC020AAJyyPtZwa2f4806J9A';
-    maxResults: string = '10';
-    pageToken: string; 
-    googleToken: string = 'AIzaSyD_jvCjEOtaghictkl1IR0NurzB13Yrb4I';
-    searchQuery: string = ' ';
-    posts: any = [];
-    onPlaying: boolean = false; 
-    //end youtube variables
 
     //mes affiliés
     totalAffiliesEquipe:any; 
@@ -79,37 +68,29 @@ export class AccueilPage {
     remNiv5:any;
     remNiv6:any;
     //end ma remunération
-    
-    //videos
-    channel = 'UC020AAJyyPtZwa2f4806J9A';
-    datas:any;
-    nextPageToken:any;
-    id:any;
-    //end videos
 
    tabs: IScrollTab[] = [
-    {
-      name: 'Mes affiliés'
-    },
-    {
-      name: 'Mes recommandations'
-    },
-    {
-      name: 'Ma rémunération'
-    },
-    {
-      name: 'Mes outils'
-    },
-    {
-      name: 'Vidéos '
-    },
-  ];
+      {
+        name: 'Affiliés', 
+        image: 'assets/images/sample1.png'
+      },
+      {
+        name: 'Recommandations', 
+        image: 'assets/images/sample2.png'
+      },
+      {
+        name: 'Rémunération', 
+        image: 'assets/images/sample3.png'
+      },
+      {
+        name: 'Outils', 
+        image: 'assets/images/sample4.png'
+      },
+    ];
+
   selectedTab: IScrollTab;
   @ViewChild('scrollTab') scrollTab: ScrollTabsComponent;
 
-  // @ViewChild('counter') counter:any;
-  // @ViewChild('counter1') counter1:any;
-  // @ViewChild('counter2') counter2:any;
 
   @ViewChild('mySlider') slider: Slides;
 
@@ -171,28 +152,9 @@ export class AccueilPage {
     }
   };
 
-  constructor(public navCtrl: NavController, public platform: Platform, public http: Http, public ytPlayer: YoutubeService, public yt:Youtube) {
+  constructor(public navCtrl: NavController, public sanitizer: DomSanitizer, public platform: Platform, public http: Http, public ytPlayer: YoutubeService, public yt:Youtube) {
     this.platform = platform;
     this.initialise(); 
-
-
-    //youtube 
-    this.loadSettings();
-
-      yt.playlist(this.channel).then(data => {
-        
-        console.log('...YOUTUBE...data...', data);
-
-        this.id = data.items[0].id;
-
-        yt.playlistList(this.id).then(data => {
-          this.datas = data.items;
-          if(data.nextPageToken){
-            this.nextPageToken = data.nextPageToken;
-          }
-        })
-
-    });
   }
 
   initialise(){
@@ -205,7 +167,7 @@ export class AccueilPage {
     this.affiliesNiv5 = localStorage.getItem('nb_affiliate_level_5');
     this.affiliesNiv6 = localStorage.getItem('nb_affiliate_level_6');
 
-    this.totalRecoEquipe = localStorage.getItem('nb_reco'); 
+    this.totalRecoEquipe = localStorage.getItem('nb_reco_total'); 
     this.recosNiv0 = localStorage.getItem('nb_reco_level_0')
     this.recosNiv1 = localStorage.getItem('nb_reco_level_1'); 
     this.recosNiv2 = localStorage.getItem('nb_reco_level_2'); 
@@ -225,26 +187,6 @@ export class AccueilPage {
     this.remNiv6 = localStorage.getItem('remuneration_level_6'); 
 
   }
-
-  //YOUTUBE
-   infiniteScrool(ev){
-    if(this.nextPageToken){
-      this.yt.playlistList_page(this.id, this.nextPageToken).then(data=>{
-        for(let i of data.items){
-          this.datas.push(i);
-        }
-        if(!data.nextPageToken){
-          this.nextPageToken = null;
-        }else{
-          this.nextPageToken = data.nextPageToken;
-        }
-        ev.complete();
-      });
-    }else{
-      ev.complete();
-    }
-  }
-  //END YOUTUBE
 
   ionViewDidEnter() {
     this.scrollTab.go2Tab(0);
@@ -273,7 +215,6 @@ export class AccueilPage {
     if (!(((($event.touches.startX - $event.touches.currentX) <= 100) || (($event.touches.startX - $event.touches.currentX) > 0)) && (this.slider.isBeginning() || this.slider.isEnd()))) {
       this.indicator.style.webkitTransform = 'translate3d(' + (-($event.translate) / 4) + 'px,0,0)';
     }
-
   }
 
   panEvent(e) {
@@ -300,96 +241,20 @@ export class AccueilPage {
     }
   }
 
-  getData() {
-    // this.nombreFilleuls = localStorage.getItem('nb_filleul_total'); 
-    // this.affiliesNiv1 = localStorage.getItem('nb_affiliate_level_1'); 
-    // this.affiliesNiv2 = localStorage.getItem('nb_affiliate_level_2'); 
-    // this.demo = new CountUp(this.counter.nativeElement, 0, Math.round(parseInt(this.nombreFilleuls)), 0,  2.5, this.options);
-    // this.demo1 = new CountUp(this.counter1.nativeElement, 0, Math.round(parseInt(this.affiliesNiv1)), 0,  2.5, this.options);
-    // this.demo2 = new CountUp(this.counter2.nativeElement, 0, Math.round(parseInt(this.affiliesNiv2)), 0,  2.5, this.options);  
-  }
-
-  ngAfterViewInit() {
-    // this.getData();
-
-    // this.indicator = document.getElementById("indicatorFor4");
-    // if (this.platform.is('windows')) {
-    //   this.indicator.style.opacity = '0';
-    // }
-
-    // setInterval(() => {
-    //   this.demo.start();
-    //   this.demo1.start();
-    //   this.demo2.start();
-    // }, 500);
-  }
-
-  goAffiliesNiv1(){
-    this.navCtrl.push(FilleulsPage); 
-  }
+    goAffiliesNiv1(){
+      this.navCtrl.push(FilleulsPage); 
+    }
  
-	goFinancement(){ 
-		this.navCtrl.push(SimulateurfinancementPage); 
-	  }
+    goFinancement(){ 
+      this.navCtrl.push(SimulateurfinancementPage); 
+    }
 
 	  goNotaire(){
-		this.navCtrl.push(SimulateurnotairePage); 
+		  this.navCtrl.push(SimulateurnotairePage); 
+	  } 
+
+	  goRevenu(){
+		  this.navCtrl.push(SimulateurrevenuPage); 
 	  }
-
-	  goGains(){
-		this.navCtrl.push(SimulateurgainsPage); 
-	  }
-
-    //YOUTUBE LOGIC 
-
-    launchYTPlayer(id, title): void {
-    this.ytPlayer.launchPlayer(id, title);
-  }
-
-  fetchData(): void {
-
-    let url = 'https://www.googleapis.com/youtube/v3/search?part=id,snippet&channelId=' 
-              + this.channelID 
-              + '&q=' + this.searchQuery 
-              + '&type=video&order=viewCount&maxResults=' + this.maxResults 
-              + '&key=' + this.googleToken;
-
-    console.log(url); 
-
-    if(this.pageToken) {
-      url += '&pageToken=' + this.pageToken;
-    }
-
-    this.http.get(url).map(res => res.json()).subscribe(data => {
-      
-      console.log (data.items);
-      // *** Get individual video data like comments, likes and viewCount. Enable this if you want it.
-      // let newArray = data.items.map((entry) => {
-      //   let videoUrl = 'https://www.googleapis.com/youtube/v3/videos?part=id,snippet,contentDetails,statistics&id=' + entry.id.videoId + '&key=' + this.googleToken;
-      //   this.http.get(videoUrl).map(videoRes => videoRes.json()).subscribe(videoData => {
-      //     console.log (videoData);
-      //     this.posts = this.posts.concat(videoData.items);
-      //     return entry.extra = videoData.items;
-      //   });
-      // });
-      this.posts = this.posts.concat(data.items);
-    });
-    }
-    loadSettings(): void {
-        this.fetchData();
-    }
-    openSettings(): void {
-        console.log("TODO: Implement openSettings()");
-    }
-    playVideo(e, post): void {
-        console.log(post);
-        this.onPlaying = true;
-        this.ytPlayer.launchPlayer(post.id, post.snippet.title);
-    }
-    loadMore(): void {
-        console.log("TODO: Implement loadMore()");
-    }
-
-
 
 }

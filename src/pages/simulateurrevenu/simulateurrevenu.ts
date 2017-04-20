@@ -20,10 +20,13 @@ export class SimulateurrevenuPage {
 
   revenuData:any;
 
+  API:any;
+
   constructor(public navCtrl: NavController, public alertController:AlertController, public navParams: NavParams, public http:Http) {
     console.log('Simulateur Revenu'); 
 
     this.revenuData = {};
+    this.API = localStorage.getItem('api'); 
 
   }
 
@@ -45,7 +48,7 @@ export class SimulateurrevenuPage {
           nb_moy_parrain_niv5: this.nombreMoyenParrainNiv5,
     }
 
-    let URL = 'http://www.nosrezo.com/scripts/API_MOBILE/api_calcul_revenu.php'; 
+    let URL = this.API + '/api_calcul_revenu.php'; 
 
     this.http 
         .post(URL, data)

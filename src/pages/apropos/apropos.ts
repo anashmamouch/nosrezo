@@ -32,7 +32,8 @@ export class AproposPage {
     console.log('###############LIST INFO###############', this.listInfo); 
 
     this.platform.ready().then(() =>{
-      //cordova inappbrowser
+      
+
     })
   }
 

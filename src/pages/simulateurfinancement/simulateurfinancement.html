@@ -1,7 +1,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title><img alt="logo" height="60" src="../../assets/images/financement_toolbar.svg"></ion-title>
+    <ion-title><img alt="logo" height="55" src="assets/images/financement_toolbar.svg"></ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -37,11 +37,17 @@
 
 </ion-list>
 
-<div *ngIf= "salaireNet && creditsMensuel && dureePret">
-    {{dateMaj}} <br/>
-    {{mensualite}}<br/>
-    {{montantPret}}<br/>
-    {{tauxPret}}<br/>
+<div *ngIf= "salaireNet && creditsMensuel && dureePret" class="result" text-center>
+	<ion-card>
+		<ion-card-header>
+		Emprunt maximum : {{montantPret}} €
+		</ion-card-header>
+		<ion-card-content>
+		Mensualités : {{mensualite}} €
+		<p margin-top>Taux moyen en vigueur : {{tauxPret}} %</p>
+		</ion-card-content>
+	</ion-card>
+    <p>Actualisé le : {{dateMaj}}</p>
 </div>
 	
 </ion-content>

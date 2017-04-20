@@ -3,7 +3,7 @@ page-simulateurnotaire {
 	font-family: 'catamaran-medium-webfont';
 	
 	.toolbar-ios, toolbar-md {
-	min-height: 60px !important;
+	min-height: 70px !important;
 	}
 		
 	.toolbar-background-ios, .toolbar-background-md {
@@ -29,7 +29,7 @@ page-simulateurnotaire {
 	
 	.result {
 		
-		.card-ios, card-md {
+		.card-ios, .card-md {
 		background: linear-gradient(135deg, rgba(50,183,255,1) 0%,rgba(0,91,249,1) 100%);
 		border-radius: 5px;
 		box-shadow: 0 1px 5px rgba(0, 0, 0, 0.3);

@@ -1,7 +1,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>Recommandations</ion-title>
+    <ion-title>{{etapeRecoString}}</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -9,9 +9,10 @@
 
 <ion-content padding>
 
-  {{etapeRecoString}}<br/>
-  {{delaiRelanceString}}
-
+   <div text-center margin-top margin-bottom>
+   <p>Relance dans : {{delaiRelanceString}}</p>
+   </div>
+  
     <div [formGroup]="recommandationsForm">
       <ion-item>
           <ion-label stacked>Montant des honoraires</ion-label>
@@ -24,6 +25,10 @@
         </ion-item>
       </div>
 
-      <button ion-button (click)="mettreAJour()" [disabled]="!recommandationsForm.valid" block>Mettre à jour</button>
-
 </ion-content>
+
+<ion-footer>
+	
+	  <button ion-button (click)="mettreAJour()" [disabled]="!recommandationsForm.valid" text-uppercase clear full color="fresh" class="action-button">Mettre à jour</button>
+	
+</ion-footer>

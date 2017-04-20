@@ -3,12 +3,6 @@ import { NavController, NavParams, AlertController, LoadingController } from 'io
 import { Http } from '@angular/http';
 import {BundlesPage} from '../bundles/bundles';
 
-/*
-  Generated class for the Modepaiement page.
-
-  See http://ionicframework.com/docs/v2/components/#navigation for more info on
-  Ionic pages and navigation.
-*/
 @Component({
   selector: 'page-modepaiement',
   templateUrl: 'modepaiement.html'

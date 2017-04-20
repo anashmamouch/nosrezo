@@ -11,7 +11,6 @@ import { AccueilPage } from '../accueil/accueil'
   templateUrl: 'miseenrelation4.html'
 })
 
-
 export class Miseenrelation4Page {
   
   typeList:any; 
@@ -27,7 +26,8 @@ export class Miseenrelation4Page {
     this.partenaireList = []; 
 
     this.typeList = this.navParams.get('typeList'); 
-    this.relationData = this.navParams.get('relationData'); 
+    this.relationData = this.navParams.get('relationData');
+    this.API = localStorage.getItem('api');  
 
     if(this.relationData != null){
         this.adresse = this.relationData['ville']; 
@@ -70,7 +70,7 @@ export class Miseenrelation4Page {
                       service_du_parrain_2 : localStorage.getItem('service_du_parrain_2')
                   }
 
-    let URLType = 'http://www.nosrezo.com/scripts/API_MOBILE/api_recherche_partenaires.php'; 
+    let URLType = this.API + '/api_recherche_partenaires.php'; 
 
     console.log('[-----------------------URL TYPE-----------------------]', URLType); 
 

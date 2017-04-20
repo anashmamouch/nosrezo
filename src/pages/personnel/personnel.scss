@@ -36,14 +36,22 @@ page-personnel {
 		ion-select {
 		max-width: 100%;
 		}
+		
+		.label-ios, .label-md {
+		min-width: 80px;
+		}
 	
 		.select-ios .select-icon, .select-md .select-icon {
 		width: 100px;
-		left: 80px;
+		left: 70px;
 		}
 		
 		.select-ios .select-icon .select-icon-inner, .select-md .select-icon .select-icon-inner {
 		left: 0px;	
+		}
+		
+		.select-text {
+		min-width: 100px;
 		}
 		
 		ion-input {

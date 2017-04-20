@@ -1,7 +1,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title><img alt="logo" height="60" src="../../assets/images/gains_toolbar.svg"></ion-title>
+    <ion-title><img alt="logo" height="55" src="assets/images/gains_toolbar.svg"></ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -14,7 +14,12 @@
 	<ion-list-header>
 	   Simulation de gains avec NosRezo :
 	 </ion-list-header>
-	  
+    
+    <!--
+        <button ion-item (click)="goNombreAffilies()" >Vos affiliés se constitue un réseau de <span>{{nombreAffilies}}</span></button>
+        <button ion-item (click)="goNombreValeur()" >Vos affiliés se constitue un réseau de <span>{{nombreValeur}}</span></button>
+        <button ion-item (click)="goNombrePercent()" >Vos affiliés se constitue un réseau de <span>{{nombrePercent}}</span></button>
+	    -->
     <ion-item>
       <ion-label>Vos affiliés se constitue un réseau de </ion-label>
       <ion-select [(ngModel)]="nombreAffilies" name="nombreAffilies"  (ionChange)="calculGain()">

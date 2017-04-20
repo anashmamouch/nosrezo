@@ -1,7 +1,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title><img alt="logo" height="60" src="../../assets/images/notaire_toolbar.svg"></ion-title>
+    <ion-title><img alt="logo" height="55" src="assets/images/notaire_toolbar.svg"></ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -20,12 +20,8 @@
         <ion-input [(ngModel)]="montantAchat" name="montantAchat" (change)="calculFraisNotaire()" placeholder="300000"></ion-input>
       </ion-item>
 
-      <ion-item>
-        <ion-label>Département</ion-label>
-        <ion-select [(ngModel)]="departement" name="departement" (ionChange)="calculFraisNotaire()" okText="Confirmer" cancelText="Annuler">
-          <ion-option [value]="dep.taux_vote" *ngFor="let dep of departements" selected="false"> {{dep.nom_departement}}</ion-option>
-        </ion-select>
-      </ion-item>
+
+      <button ion-item (click)="goDepartements()">Départements <p item-right>{{depNom}}</p></button>
 
       <ion-item>
         <ion-label>Type de bien</ion-label>

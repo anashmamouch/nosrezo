@@ -1,13 +1,8 @@
-<!--
-  Generated template for the Entreprise page.
 
-  See http://ionicframework.com/docs/v2/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
 
   <ion-navbar>
-    <ion-title>Mon entreprise</ion-title>
+    <ion-title> {{ "Mon entreprise" | translate}}</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -19,26 +14,26 @@
   <ion-list>
 
 	<ion-list-header>
-    Informations sur votre entreprise
+    {{ "Informations sur votre entreprise" | translate}}
   	</ion-list-header>
 
      <!--Type Entreprise-->
      <ion-item>
-      <ion-label>Type d'entreprise</ion-label>
+      <ion-label>{{ "Type d'entreprise" | translate}}</ion-label>
       <ion-select  [(ngModel)]="entreprise.type" [ngModelOptions]="{standalone: true}">
-      <ion-option value="micro">Micro-entreprise</ion-option>
+      <ion-option value="micro">{{ "Micro-entreprise" | translate}}</ion-option>
       <ion-option value="eirl">EIRL</ion-option>
       <ion-option value="sarl">SARL</ion-option>
       <ion-option value="sasu">SASU</ion-option>
       <ion-option value="sas">SAS</ion-option>
       <ion-option value="sa">SA</ion-option>
-      <ion-option value="autre">Autre</ion-option>
+      <ion-option value="autre">{{"Autre" | translate}}</ion-option>
       </ion-select>
     </ion-item>
 
     <!--Nom Entreprise-->
     <ion-item>
-      <ion-label fixed>Dénomination</ion-label>
+      <ion-label fixed>{{"Dénomination" | translate}}</ion-label>
       <ion-input type="text" formControlName="nom" [(ngModel)]="entreprise.nom" name="nom" placeholder = "Microsoft"></ion-input>
     </ion-item>
 
@@ -58,7 +53,7 @@
 </div>
 
   <div padding>
-    <button (click)= "modifierEntreprise()" [disabled]="!entrepriseForm.valid" text-center block ion-button round class="action-button">Sauvegarder</button>
+    <button (click)= "modifierEntreprise()" [disabled]="!entrepriseForm.valid" text-center block ion-button round class="action-button">{{ "Sauvegarder" | translate}}</button>
   </div>
 
 </ion-content>

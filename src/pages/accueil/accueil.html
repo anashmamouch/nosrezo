@@ -5,7 +5,7 @@
 	<button ion-button menuToggle>
       <ion-icon color="nosrezo" name="menu"></ion-icon>
     </button>
-	<ion-title><img alt="logo" height="45" src="../../assets/images/my_nosrezo.svg"></ion-title>
+	<ion-title><img alt="logo" height="45"  src="assets/images/my_nosrezo.svg"></ion-title>
 	</ion-navbar>
 
 	<scroll-tabs #scrollTab [tabs]="tabs" (onSelectedTab)="tabChange($event)"></scroll-tabs>
@@ -23,36 +23,35 @@
 			<div padding>
 			<ion-card>
 			  <ion-card-header>
-				Total affiliés équipe :
+					{{"Total affiliés équipe :" | translate}}
 			  </ion-card-header>
 			  <ion-card-content>
 				<h1 margin-bottom><ion-icon name="ios-contacts-outline"></ion-icon> {{totalAffiliesEquipe}}</h1>
-				Depuis le 24/02/15
 			  </ion-card-content>
 			</ion-card>
 			</div>
 			<ion-list>
 			  <ion-list-header>
-				<ion-icon name="list"></ion-icon> Détails affiliés par niveau :
+				<ion-icon name="list"></ion-icon>{{ "Détails affiliés par niveau :" | translate }} 
 			  </ion-list-header>
-			  <button ion-item (click)="goAffiliesNiv1()"> Niveau 1 
+			  <button ion-item (click)="goAffiliesNiv1()">{{ "Niveau 1" | translate }}
 			  <p item-right>{{affiliesNiv1}}</p>
 			  </button>
-			  <button ion-item> Niveau 2 
+			  <ion-item>{{ "Niveau 2" | translate }}
 			  <p item-right>{{affiliesNiv2}}</p>
-			  </button>
-			  <button ion-item> Niveau 3 
+			  </ion-item>
+			  <ion-item>{{ "Niveau 3" | translate }}
 			  <p item-right>{{affiliesNiv3}}</p>
-			  </button>
-			  <button ion-item> Niveau 4 
+			  </ion-item>
+			  <ion-item>{{ "Niveau 4" | translate }}
 			  <p item-right>{{affiliesNiv4}}</p>
-			  </button>
-			  <button ion-item> Niveau 5 
+			  </ion-item>
+			  <ion-item> {{ "Niveau 5" | translate }}
 			  <p item-right>{{affiliesNiv5}}</p>
-			  </button>
-			  <button ion-item> Niveau 6 
+			  </ion-item>
+			  <ion-item> {{ "Niveau 6" | translate }}
 			  <p item-right>{{affiliesNiv6}}</p>
-			  </button>
+			  </ion-item>
 			</ion-list>
 		
 		 </div>
@@ -62,39 +61,38 @@
 		 <div padding>
 			<ion-card>
 			  <ion-card-header>
-				Total recommandations équipe :
+					{{ "Total recommandations équipe :"| translate}}
 			  </ion-card-header>
 			  <ion-card-content>
 				<h1 margin-bottom><ion-icon name="ios-folder-open-outline"></ion-icon> {{totalRecoEquipe}}</h1>
-				Depuis le 24/02/15
 			  </ion-card-content>
 			</ion-card>
 			</div>
 			<ion-list>
 			  <ion-list-header>
-				<ion-icon name="list"></ion-icon> Détails recommandations par niveau :
+				<ion-icon name="list"></ion-icon>  {{ "Détails recommandations par niveau :" | translate}}
 			  </ion-list-header>
-			  <button ion-item> Mes dossiers 
+			  <ion-item>{{"Mes dossiers" | translate }}
 			  <p item-right>{{recosNiv0}}</p>
-			  </button>
-			  <button ion-item> Niveau 1 
+			  </ion-item>
+			  <ion-item>{{ "Niveau 1" | translate }}
 			  <p item-right>{{recosNiv1}}</p>
-			  </button>
-			  <button ion-item> Niveau 2 
+			  </ion-item>
+			  <ion-item>{{ "Niveau 2" | translate }}
 			  <p item-right>{{recosNiv2}}</p>
-			  </button>
-			  <button ion-item> Niveau 3 
+			  </ion-item>
+			  <ion-item>{{ "Niveau 3" | translate }}
 			  <p item-right>{{recosNiv3}}</p>
-			  </button>
-			  <button ion-item> Niveau 4 
+			  </ion-item>
+			  <ion-item>{{ "Niveau 4" | translate }}
 			  <p item-right>{{recosNiv4}}</p>
-			  </button>
-			  <button ion-item> Niveau 5 
+			  </ion-item>
+			  <ion-item>{{ "Niveau 5" | translate }}
 			  <p item-right>{{recosNiv5}}</p>
-			  </button>
-			  <button ion-item> Niveau 6 
+			  </ion-item>
+			  <ion-item>{{ "Niveau 6" | translate }}
 			  <p item-right>{{recosNiv6}}</p>
-			  </button>
+			  </ion-item>
 			</ion-list>
 			 
 		 </div>
@@ -104,39 +102,40 @@
 		   <div padding>
 			<ion-card>
 			  <ion-card-header>
-				À Encaisser :
+					{{ "À Encaisser :" | translate}}
+				
 			  </ion-card-header>
 			  <ion-card-content>
 				<h1 margin-bottom><ion-icon name="ios-cash-outline"></ion-icon> {{commissionEncaisser}}</h1>
-				Rémunération potentielle : {{remunerationPotentielle}}
+				{{ "Rémunération potentielle :" | translate}} {{remunerationPotentielle}}
 			  </ion-card-content>
 			</ion-card>
 			</div>
 			<ion-list>
 			  <ion-list-header>
-				<ion-icon name="list"></ion-icon> Détails rémunérations par niveau :
+				<ion-icon name="list"></ion-icon>{{ "Détails rémunérations par niveau :" | translate}}
 			  </ion-list-header>
-			  <button ion-item>Mes dossiers 
+			  <ion-item>{{ "Mes dossiers" | translate }}
 			  <p item-right>{{remNiv0}}</p>
-			  </button>
-			  <button ion-item> Niveau 1 
+			  </ion-item>
+			  <ion-item>{{ "Niveau 1" | translate }}
 			  <p item-right>{{remNiv1}}</p>
-			  </button>
-			  <button ion-item> Niveau 2 
+			  </ion-item>
+			  <ion-item>{{ "Niveau 2" | translate }}
 			  <p item-right>{{remNiv2}}</p>
-			  </button>
-			  <button ion-item> Niveau 3 
+			  </ion-item>
+			  <ion-item>{{ "Niveau 3" | translate }}
 			  <p item-right>{{remNiv3}}</p>
-			  </button>
-			  <button ion-item> Niveau 4 
+			  </ion-item>
+			  <ion-item> {{ "Niveau 4" | translate }}
 			  <p item-right>{{remNiv4}}</p>
-			  </button>
-			  <button ion-item> Niveau 5 
+			  </ion-item>
+			  <ion-item>{{ "Niveau 5" | translate }}
 			  <p item-right>{{remNiv5}}</p>
-			  </button>
-			  <button ion-item> Niveau 6 
+			  </ion-item>
+			  <ion-item> {{ "Niveau 6" | translate }}
 			  <p item-right>{{remNiv6}}</p>
-			  </button>
+			  </ion-item>
 			</ion-list>
 			 
 		 </div>
@@ -145,67 +144,24 @@
 			 
 		 <div padding>
 			 
-	        <ion-card>
-		    <a (click)="goFinancement()"><img src="../../assets/images/simu_financement.svg"></a>
+	    <ion-card>
+		    <a (click)="goFinancement()"><img src="assets/images/simu_financement.svg"></a>
 			</ion-card>
 
 			<ion-card>
-			<a (click)="goNotaire()"><img src="../../assets/images/simu_notaire.svg"></a>
+			<a (click)="goNotaire()"><img src="assets/images/simu_notaire.svg"></a>
 			</ion-card>
 
 			<ion-card>
-			<a (click)="goGains()"><img src="../../assets/images/simu_gains.svg"></a> 
+			<a (click)="goRevenu()"><img src="assets/images/simu_gains.svg"></a> 
 			</ion-card>
 			 
 		 </div>
 			 
 		 </div>
-		  
-			<!--youtube-->
-			<div *ngIf="i==4">
-
-					<ion-card *ngFor="let data of datas">
-						<iframe allowfullscreen frameborder="0" height="200" width="100%" [src]="data.snippet.resourceId.videoId | safe:'resourceUrl'">
-						</iframe>
-						<ion-card-content>
-							<ion-card-title class="title">
-								{{data.snippet.title}}
-							</ion-card-title>
-						</ion-card-content>
-					</ion-card>
-
-					<ion-infinite-scroll (ionInfinite)="infiniteScrool($event)">
-						<ion-infinite-scroll-content></ion-infinite-scroll-content>
-					</ion-infinite-scroll>
-
-			</div>
-
+	
       </div>
     </div>
   </div>
 
-
-	<!--<ion-list>
-
-		<ion-grid margin-top>
-			<ion-row class="stats-info">
-				<ion-col width-33 text-center tappable (click)="goToFilleuls()">
-					<p><span #counter></span></p>
-					<p>{{"Affiliés total équipe" | translate}}</p>
-				</ion-col>
-				
-				<ion-col width-33 text-center>
-					<p><span #counter1></span></p>
-					<p>{{"Affiliés Niveau 1" | translate}}</p>
-				</ion-col>
-
-				<ion-col width-33 text-center>
-					<p><span #counter2></span></p>
-					<p>{{"Affiliés Niveau 2" | translate}}</p>
-				</ion-col>
-			</ion-row>
-		</ion-grid>
-
-	</ion-list>
-	-->
 </ion-content>

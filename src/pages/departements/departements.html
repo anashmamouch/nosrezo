@@ -1,0 +1,16 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{"Département" | translate}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+
+  <ion-list>
+    <button ion-item *ngFor="let dep of departements" (click)="clickDepartement(dep)">{{dep.nom_departement}}</button>
+  </ion-list>
+
+</ion-content>

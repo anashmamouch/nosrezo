@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { NavController, MenuController, AlertController, LoadingController} from 'ionic-angular';
 import { AccueilPage } from '../accueil/accueil';
 import { InscriptionPage } from '../inscription/inscription';
+import {  AbonnementnosrezoPage } from '../abonnementnosrezo/abonnementnosrezo';
+
 import { Http } from '@angular/http';
 
 import { MotpasseoubliePage } from '../motpasseoublie/motpasseoublie';
@@ -43,6 +45,7 @@ export class LoginPage {
   constructor(public navCtrl: NavController, public menu: MenuController, public api:Api, public fb:FormBuilder, public http: Http, public alertController: AlertController, public translate: TranslateService, public loadingController: LoadingController) {
 
     this.API = localStorage.getItem('api');
+    
     this.menu.swipeEnable(false);
     this.backgroundImage = "assets/images/background_login.png";
     this.translate = translate;
@@ -216,7 +219,6 @@ export class LoginPage {
         localStorage.setItem('statut_logement', responseInfo.statut_logement); 
         localStorage.setItem('photo_profil', responseInfo.photo_profil);
 
-
         localStorage.setItem('nb_filleul_total', responseInfo.nb_filleul_total); 
         localStorage.setItem('nb_affiliate_level_1', responseInfo.nb_affiliate_level_1);
         localStorage.setItem('nb_affiliate_level_2', responseInfo.nb_affiliate_level_2);  
@@ -254,11 +256,42 @@ export class LoginPage {
         localStorage.setItem('lien_webinar', responseInfo.lien_webinar); 
         localStorage.setItem('telephone_service_qualite', responseInfo.telephone_service_qualite); 
 
+        localStorage.setItem('is_abonnement_payed', responseInfo.is_abonnement_payed); 
+        localStorage.setItem('is_abonnement_access_intranet', responseInfo.is_abonnement_access_intranet); 
+
 
         this.api.getInfo(this.user.username);
         localStorage.setItem('id_affiliate', this.user.username);
         localStorage.setItem('password', this.user.password);
-        this.navCtrl.setRoot(AccueilPage, {params: this.user});
+
+        let URL = this.API + '/api_check_access.php?id_affiliate='+responseInfo.id_affiliate
+                              +'&id_upline=' + responseInfo.id_upline
+                              +'&is_abonnement_payed=' + responseInfo.is_abonnement_payed
+                              +'&is_abonnement_access_intranet=' + responseInfo.is_abonnement_access_intranet; 
+        console.log(URL); 
+
+        this.http
+            .get(URL)
+            .subscribe(
+              data => {
+                console.log('____check access____', data);
+
+                let response = JSON.parse(data['_body']);
+
+                if(response.data == 4){
+                  this.navCtrl.setRoot(AbonnementnosrezoPage);
+                }else {
+                  this.navCtrl.setRoot(AccueilPage);
+                }
+                
+              }, 
+              error => {
+                console.log('error', error); 
+              }
+            )
+
+
+        //this.navCtrl.setRoot(AccueilPage, {params: this.user});
 
         console.log('--INFO AFFILIATE--', responseInfo);
        

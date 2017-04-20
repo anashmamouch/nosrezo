@@ -22,6 +22,7 @@ export class RecommandationsPage {
 
     constructor(public navCtrl: NavController, public params:NavParams, public fb:FormBuilder, public http: Http, public alertCtrl: AlertController) {
         let idAffiliate = localStorage.getItem('id_affiliate');
+        let idPartenaire = localStorage.getItem('id_partenaire'); 
         this.page = 1;
         this.recommandations = [];
         this.reco_a_traiter = [];
@@ -31,7 +32,7 @@ export class RecommandationsPage {
 
         console.log('||PAGE||', pair); 
 
-        let URL: string = this.API + 'api_return_recommandations.php?term='+idAffiliate;
+        let URL: string = this.API + 'api_return_recommandations.php?term='+idPartenaire;
         console.log('<<url recommandations>>', URL); 
 
         this.http.get(URL).subscribe((data) => {
@@ -39,10 +40,7 @@ export class RecommandationsPage {
             this.nombre_reco_total = response.length;
             this.recommandations = response;
         });  
-
-        // this.validateForm(); 
     }
-
 
     traitementRecommandation(id_recommandation) {
         this.page = 2;

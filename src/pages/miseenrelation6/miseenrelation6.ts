@@ -78,7 +78,7 @@ export class Miseenrelation6Page {
                     villelongitude: this.relationData.longitude,
                     adresse: this.relationData.adresse,
                     partner: this.relationData.partenaire,
-                    first_id_partenaire_algorithme: this.relationData.partenaire_value
+                    first_id_partenaire_algorithme: this.relationData.partenaire_val
                 }
       console.log('**********************RELATION DATA**********************', data); 
       this.http

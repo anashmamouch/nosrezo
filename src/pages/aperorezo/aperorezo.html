@@ -1,16 +1,10 @@
-<!--
-  Generated template for the Aperorezo page.
-
-  See http://ionicframework.com/docs/v2/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
 
   <ion-navbar>
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title><img alt="logo" height="40" src="../../assets/images/aperorezo.svg" ></ion-title>
+    <ion-title><img alt="logo" height="40" src="assets/images/aperorezo.svg" ></ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -18,7 +12,7 @@
 <ion-content padding>
  
   <div class="title">
-   <h3 color="nosrezo">Prochaines présentations NosRezo autour de chez vous</h3>
+   <h3 color="nosrezo">{{ "Prochaines présentations NosRezo autour de chez vous" | translate}}</h3>
   </div>
 	
   <ion-list>
@@ -26,22 +20,22 @@
     <ion-card *ngFor = "let apero of aperosrezo">
 	  <ion-item>
 	   <ion-avatar item-left>
-       <img [src]="image">
+       <img [src]="apero.photo_profil">
        </ion-avatar>
-       <h2 color="fresh">{{ apero.endroit }}</h2>
-       <p color="fresh">{{ apero.planning_jour_semaine }} {{apero.jour_du_mois}} {{apero.planning_mois_de_annee}}</p>
+	   <p color="nosrezo">{{ "Animé par:" | translate}} <strong>{{ apero.presentateur }}</strong></p>
+       <h2 color="nosrezo">{{ apero.endroit }}</h2>
 	  </ion-item>
       <ion-card-content>
       {{ apero.adresse }}<br/>
 	  {{ apero.endroit }}
 	  </ion-card-content>
 	  <ion-row>
-	   <ion-col text-left width-75>
-	   Animé par: <strong>{{ apero.presentateur }}</strong>
+	   <ion-col text-left width-67>
+	   {{"Le" | translate}} {{ apero.planning_jour_semaine }} {{apero.jour_du_mois}} {{apero.planning_mois_de_annee}}
 	   </ion-col>  
-	   <ion-col text-right width-25>
+	   <ion-col text-right width-33>
 	   <ion-icon name="clock"></ion-icon>
-	   <strong>{{apero.planning_heure}}</strong>
+	   {{ "À" | translate}} {{apero.planning_heure}}
 	   </ion-col>
 	  </ion-row>
     </ion-card>

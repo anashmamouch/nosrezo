@@ -2,16 +2,19 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>Simulateur de revenu</ion-title>
+    <ion-title><img alt="logo" height="55" src="assets/images/gains_toolbar.svg"></ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding>
-<strong> Hypothèse de départ: </strong> <br/>
-1 personne sur 5 fait une <br/> recommandation qui aboutie par an 
+<ion-content>
 
+<div text-center margin-top margin-bottom>
+Hypothèse de départ:
+1 personne sur 5 fait une recommandation qui aboutie par an 
+</div>
+	
 <ion-list>
 
   <ion-item>
@@ -220,12 +223,13 @@
 		</ion-select>
 
 	</ion-item>
-	<ion-item>
-		Nombre de personnes moyennes <br/> parrainnées par :
-	</ion-item>
+	
+	<ion-list-header>
+	Nombre de personnes par niveau :
+	</ion-list-header>
 	
 	<ion-item>
-	<ion-label>Mon 1er niveau</ion-label>
+	<ion-label>Mon 2ème niveau</ion-label>
 		<ion-select [(ngModel)]="nombreMoyenParrainNiv1" name="nombreMoyenParrainNiv1" (ionChange)="calculRevenu()">
 				<ion-option value='1' >1</ion-option>
 				<ion-option value='2' >2</ion-option>
@@ -241,7 +245,7 @@
   	</ion-item>
 
 	<ion-item>
-	<ion-label>Mon 2ème niveau</ion-label>
+	<ion-label>Mon 3ème niveau</ion-label>
 		<ion-select [(ngModel)]="nombreMoyenParrainNiv2" name="nombreMoyenParrainNiv2" (ionChange)="calculRevenu()">
 				<ion-option value='1' >1</ion-option>
 				<ion-option value='2' >2</ion-option>
@@ -257,7 +261,7 @@
   	</ion-item>
 
 	<ion-item>
-	<ion-label>Mon 3ème niveau</ion-label>
+	<ion-label>Mon 4ème niveau</ion-label>
 		<ion-select [(ngModel)]="nombreMoyenParrainNiv3" name="nombreMoyenParrainNiv3" (ionChange)="calculRevenu()">
 				<ion-option value='1' >1</ion-option>
 				<ion-option value='2' >2</ion-option>
@@ -273,7 +277,7 @@
   	</ion-item>
 
 	<ion-item>
-	<ion-label>Mon 4ème niveau</ion-label>
+	<ion-label>Mon 5ème niveau</ion-label>
 		<ion-select [(ngModel)]="nombreMoyenParrainNiv4" name="nombreMoyenParrainNiv4" (ionChange)="calculRevenu()">
 				<ion-option value='1' >1</ion-option>
 				<ion-option value='2' >2</ion-option>
@@ -289,7 +293,7 @@
   	</ion-item>
 
 	  <ion-item>
-	<ion-label>Mon 5ème niveau</ion-label>
+	<ion-label>Mon 6ème niveau</ion-label>
 		<ion-select [(ngModel)]="nombreMoyenParrainNiv5" name="nombreMoyenParrainNiv5" (ionChange)="calculRevenu()">
 				<ion-option value='1' >1</ion-option>
 				<ion-option value='2' >2</ion-option>
@@ -303,19 +307,20 @@
 				<ion-option value='10' >10</ion-option>
 		</ion-select>
   	</ion-item>
-
-	  <ion-item>
-		  <div *ngIf="revenuData.montant_revenu >= 1">
-			  <h3>{{revenuData.montant_revenu}} €</h3>
-		  </div>
-		  <br/> <br/>
-		  Ces chiffres ne constituent <br/> aucunement une promesse de gains.<br/>
-		  Vos résultats dépendront <br/> de votre niveau d'implication,<br/> 
-		  du temps passé au développement <br/> et à la réussite de votre équipe.
-
-		  <br/> <br/> <br/> <br/>
-	  </ion-item>
-
-
+		  
 </ion-list>
+	
+<div padding text-center *ngIf="revenuData.montant_revenu >= 1" class="result">
+	<ion-card>
+		<ion-card-header>
+		Revenu Total : 
+		</ion-card-header>
+		<ion-card-content>
+		{{revenuData.montant_revenu}} €  
+		</ion-card-content>
+	</ion-card>
+	
+	<p margin-top>Ces chiffres ne constituent aucunement une promesse de gains. Vos résultats dépendront de votre niveau d'implication, du temps passé au développement et à la réussite de votre équipe.</p>
+</div>
+	
 </ion-content>

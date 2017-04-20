@@ -45,7 +45,7 @@ export class Miseenrelation51Page {
 
     this.commentaires = [ ] ; 
 
-    let URL = "http://www.nosrezo.com/scripts/api_mobile/api_infos_partenaire.php?term="+this.navParams.get('id_affiliate');
+    let URL = this.API + "/api_infos_partenaire.php?term=" + this.navParams.get('id_affiliate');
 
     this.blur = { value:'5px',colors: {start:'rgba(43, 40, 50, 0.8)',mid:'rgba(83, 86, 99, 0.8)',end:'rgba(69, 77, 91, 0.6)'}}; 
     this.image = ' ' ; 
@@ -68,7 +68,7 @@ export class Miseenrelation51Page {
 
             console.log("<----==RESPONSE==---->", response);
 
-            let URL =  "http://www.nosrezo.com/scripts/API_MOBILE/api_return_info_affiliate.php?term=" + response['id_affiliate'];
+            let URL =  this.API + "/api_return_info_affiliate.php?term=" + response['id_affiliate'];
             this.http 
                 .get(URL)
                 .subscribe(

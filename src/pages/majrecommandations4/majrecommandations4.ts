@@ -61,12 +61,17 @@ export class Majrecommandations4Page {
             description: this.description
     }
 
-    let URL: string = this.API + 'api_maj_recommandation.php';
+    let URL: string = 'http://www.nosrezo.com/scripts/API_MOBILE/api_maj_recommandation.php';
     
+    console.log('urlurlurl', URL); 
+    console.log('data', data); 
+
     this.http
         .post(URL, data)
         .subscribe(
           data => {
+
+            console.log('data', data); 
             let response = JSON.parse(data['_body']); 
             console.log('^^^^^^^^^^^^DATA^^^^^^^^^^^^', response);
 
@@ -91,6 +96,7 @@ export class Majrecommandations4Page {
               }else
               if (response[0].msg_info != "") {
                   this.showAlert('', response[0].msg_info, "OK");
+                  
                   this.navCtrl.setRoot(Recommandations2Page); 
               } 
           }, 
